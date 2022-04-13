@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Tweet from "./tweet";
 
 function App() {
+  const [isRed, change_color] = useState(false);
+  const toggle = () => change_color(!isRed);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className={isRed ? "red" : ""} onClick={toggle}>
+        Toggle My Color Please
+      </h1>
+      <div className="App">
+        <Tweet name="Nadeem" msg="Hello Everyone to React" />
+        <Tweet name="John" msg="Winters are coming" />
+        <Tweet name="Kareem" msg="Coming to Islamabad" />
+        <Tweet name="Azlan" msg="Watching COCO Melon righ now" />
+      </div>
     </div>
   );
 }
